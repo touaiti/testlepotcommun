@@ -23,6 +23,7 @@ angular.module('LpcWebTest2018')
         $scope.changeLocale = function(locale) {        
             $scope.locale = locale
             //sauvegrade de la langue choisie dans le storage
+            
             window.localStorage['locale'] = locale
         }
     }]);
