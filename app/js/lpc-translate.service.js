@@ -6,7 +6,13 @@ angular.module('LpcWebTest2018')
         },
         loadPropertiesImpl = function(){
             //chargement de la liste des propriétés
-            return $http.get(urlProperties)
+            $http.get(urlProperties).then( function(properties) {
+                $rootScope.properties = properties.data
+            }, function(reason) {
+                console.log("error occured while getting properties");
+            }, function(value) {
+                console.log("no callback");
+            });
         }
 
         return {
