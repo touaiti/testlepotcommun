@@ -1,0 +1,46 @@
+<html data-ng-app="LpcWebTest2018">
+    <head>
+        <title>Lpc Technical Test 2017</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" id="Viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="app/css/app.css"/>
+    </head>
+    <body data-ng-controller="PotsController">
+        
+        <div class="content">
+            <div class="lang-choice-container">
+              <a href="" data-ng-click="changeLocale('fr')" data-ng-class="{'selected':locale=='fr'}">
+                <img src="app/img/fr.png" alt="France">
+              </a>
+              <a href="" data-ng-click="changeLocale('en')" data-ng-class="{'selected':locale=='en'}">
+                <img src="app/img/en.png" alt="England">
+              </a>
+              <a href="" data-ng-click="changeLocale('es')" data-ng-class="{'selected':locale=='es'}">
+                <img src="app/img/es.png" alt="Spain">
+              </a>
+              <a href="" data-ng-click="changeLocale('it')" data-ng-class="{'selected':locale=='it'}">
+                <img src="app/img/it.png" alt="Italy">
+              </a>
+            </div>
+          
+            <h1>{{'main.pots_list' | lpcTranslate:locale}}</h1>
+            <div class="row">
+              <div class="col" data-ng-repeat="pot in pots">
+                  <div class="pot-item" data-lpc-lazy-background="pot.imageUrl" data-loading-class="loading">
+                    <div class="pot-name">{{pot.name | lpcTranslate:locale}}</div>
+                  </div>
+              </div>
+            </div>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <script src="app/js/app.module.js"></script>
+        <script src="app/js/app.constants.js"></script>
+        <script src="app/js/lpc-translate.service.js"></script>
+        <script src="app/js/pots-service.service.js"></script>
+        <script src="app/js/lpc-lazy-background.directive.js"></script>
+        <script src="app/js/pots-controller.controller.js"></script>
+        <script src="app/js/lpc-translate.filter.js"></script>
+        <script src="app/js/app.run.js"></script>
+    </body>
+</html>
